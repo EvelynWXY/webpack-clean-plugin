@@ -1,3 +1,4 @@
+import "./index.css";
 import a from "./a.js";
 
 a();

@@ -1,5 +1,5 @@
 const path = require("path");
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const HelloWorldPlugin = require('./plugins/basic.js')
 // const FileListPlugin = require('./plugins/file-list-plugin.js')
 // const CleanPlugin = require('./plugins/clean-plugin.js')
@@ -8,34 +8,41 @@ const path = require("path");
 // const EmptyPlugin = require('empty-webpack-plugin');
 
 module.exports = {
-  //   resolveLoader: {
-  //     modules: ['node_modules', 'loaders']
-  //   },
+  // resolveLoader: {
+  //   modules: ["node_modules", "loaders"],
+  // },
   entry: {
     index: "./src/js/index.js",
   },
 
   module: {
     rules: [
-      // {
-      // 	test: /\.md$/,
-      // 	use: [
-      // 	{
-      // 		loader: 'html-loader'
-      // 	},
-      // 	{
-      // 		loader: 'markdown-loader',
-      // 		options: {}
-      // 	}],
-      // },
       {
-        test: /.js$/,
+        test: /\.md$/,
         use: [
           {
-            loader: path.resolve(__dirname, "loaders/replace-loader.js"),
+            loader: "html-loader",
+          },
+          {
+            loader: "webpack-markdown-loader-wxy",
+            options: {
+              html: true,
+            },
           },
         ],
       },
+      // {
+      //   test: /.js$/,
+      //   use: [
+      //     {
+      //       // loader: path.resolve(__dirname, "loaders/replace-loader.js"),
+      //       loader: "replace-loader",
+      //       options: {
+      //         name: "abc",
+      //       },
+      //     },
+      //   ],
+      // },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
@@ -44,11 +51,11 @@ module.exports = {
   },
 
   plugins: [
-    // 	new HtmlWebpackPlugin({
-    //   filename: 'index.html',
-    //   template: './src/views/index.html',
-    //   title: 'haha'
-    // 	}),
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: "./src/views/index.html",
+      title: "haha",
+    }),
     // 	new HelloWorldPlugin({a: 1}),
     // 	new FileListPlugin(),
     // 	new EmptyPlugin({exclude: 'a'}),

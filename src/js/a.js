@@ -1,3 +1,3 @@
 export default function () {
-  console.log("hello,jirengu");
+  console.log("hello,abc");
 }

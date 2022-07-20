@@ -1,3 +1,6 @@
+const { getOptions } = require("loader-utils");
+
 module.exports = function (source) {
-  return source.replace(/jirengu/, "JIRENGU");
+  let options = getOptions(this);
+  return source.replace(options.name, options.name.toUpperCase());
 };
