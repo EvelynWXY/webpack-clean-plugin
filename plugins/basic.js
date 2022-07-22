@@ -1,6 +1,6 @@
 class HelloWorldPlugin {
   constructor(options) {
-    //console.log(options)
+    console.log(options);
   }
 
   apply(compiler) {
@@ -8,10 +8,10 @@ class HelloWorldPlugin {
     // compiler.plugin('done', function() {
     //   console.log('Hello World!')
     // })
-    compiler.hooks.done.tap('HelloWorldPlugin', compilation => {
-      console.log('helllo world!!!!')
-    })
+    compiler.hooks.done.tap("HelloWorldPlugin", (compilation) => {
+      console.log("helllo world!!!!");
+    });
   }
 }
 
-module.exports = HelloWorldPlugin
+module.exports = HelloWorldPlugin;
