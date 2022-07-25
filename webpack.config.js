@@ -3,9 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HelloWorldPlugin = require("./plugins/basic.js");
 const FileListPlugin = require("./plugins/file-list-plugin.js");
 const CleanPlugin = require("./plugins/clean-plugin.js");
-// const CountTimePlugin = require('./plugins/count-time.js')
-
-// const EmptyPlugin = require('empty-webpack-plugin');
+const CountTimePlugin = require("./plugins/count-time.js");
 
 module.exports = {
   // resolveLoader: {
@@ -59,6 +57,6 @@ module.exports = {
     new HelloWorldPlugin({ a: 1 }),
     new FileListPlugin(),
     new CleanPlugin({ exclude: "a" }),
-    // 	new CountTimePlugin()
+    new CountTimePlugin(),
   ],
 };
